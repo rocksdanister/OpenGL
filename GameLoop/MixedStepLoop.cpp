@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 {
   queuedMilliseconds=0;
   fps=30;
-  responseTime=(1/fps)*1000;  // 33.33..ms is the responsetime for 30fps, 15.56.. for 60fps etc..
+  responseTime=(1/fps)*1000;  // 33.33..ms is the responsetime for 30fps, 16.65.. for 60fps etc..
   // glut window properties & stuff
   glutDisplayFunc(mixedStepLoop); // or call the draw function if you like it that way
   glutIdleFunc(mixedStepLoop);
