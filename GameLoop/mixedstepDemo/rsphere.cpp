@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
-#include<time.h>
-#include<stdio.h>
+#include <time.h>
+#include <stdio.h>
 #include <GL/glut.h>
 
 
@@ -17,92 +17,102 @@ void draw()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        glMatrixMode(GL_MODELVIEW);
-        glLoadIdentity();
-        glTranslatef(0.0, 0.0, -5.0);
-        glRotatef(angle, 1.0, 1.0, 1.0);
-    	  glRotatef(angle, 1.0, 0.0, 1.0 );
-  	    glRotatef(angle, 0.0, 1.0, 1.0 );
-        glTranslatef(-0.5, -1.0, 0.0);
-        glScalef(.8,.8,.8);
-        //draw sphere
-      	glColor3f(.8, 0.0, 0.0);
-      	glutSolidSphere(radius,20,20);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    glTranslatef(0.0, 0.0, -5.0);
+    glRotatef(angle, 1.0, 1.0, 1.0);
+    glRotatef(angle, 1.0, 0.0, 1.0 );
+    glRotatef(angle, 0.0, 1.0, 1.0 );
+    glTranslatef(-0.5, -1.0, 0.0);
+    glScalef(.8,.8,.8);
+    //draw sphere
+    glColor3f(.8, 0.0, 0.0);
+    glutSolidSphere(radius,20,20);
     glutSwapBuffers();
 }
 
 void update()
 {
-        angle += 1.0f;
-        if (angle > 360)
-        {
-                        angle -= 360;
-        }
-
+    angle += 1.0f;
+    if (angle > 360)
+        angle -= 360;
 }
 
 
 void init()
 {
-        glEnable(GL_DEPTH_TEST);
-		glClearColor(1,1,1,1);
+    glEnable(GL_DEPTH_TEST);
+    glClearColor(1,1,1,1);
 }
 
 
 
 void handleResize(int w, int h)
 {
-        glViewport(0, 0, w, h);
-        glMatrixMode(GL_PROJECTION);
-        glLoadIdentity();
-        gluPerspective(45.0, (double)w / (double)h, 1.0, 200.0);
+    glViewport(0, 0, w, h);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluPerspective(45.0, (double)w / (double)h, 1.0, 200.0);
 }
 
 void mixedStepLoop()
 {
-double now = glutGet(GLUT_ELAPSED_TIME);
-double timeElapsedMs =(now-prev);
-queuedMilliseconds += timeElapsedMs ;
-if(fps<0)
-{
-draw();
-}
-while(queuedMilliseconds >= responseTime) {
-		update();
+    double now = glutGet(GLUT_ELAPSED_TIME);
+    double timeElapsedMs =(now-prev);
+    queuedMilliseconds += timeElapsedMs ;
+    if(fps<0)
+    {
+        draw();
+    }
+    while(queuedMilliseconds >= responseTime) 
+    {
+        update();
         queuedMilliseconds -= responseTime;
-	if(fps>0)
-	glutPostRedisplay();
-	}
-prev=now;
+        if(fps>0)
+            glutPostRedisplay();
+    }
+    prev=now;
 }
 
 
 void processMenuEvents(int options){
-switch(options){
-case 1:fps=60;
-	responseTime=(1/fps)*1000;
-	break;
-case 2:fps=30;
-	responseTime=(1/fps)*1000;
-	break;
-case 3:fps=24;
-	responseTime=(1/fps)*1000;
-	break;
-case 4: fps=-1;
-	break;
-}
+    switch(options)
+    {
+        case 1:
+        {
+            fps=60;
+            break;
+        }
+        case 2:
+        {
+            fps=30;
+            break;
+        }
+        case 3:
+        {
+            fps=24;
+            break;
+        }
+        case 4:
+        { 
+            fps=-1;
+            break;
+        }
+    }
+    if(fps!=-1)
+        responseTime=(1/fps)*1000;
 }
 
 
 void createGLUTMenus()
 {
-int menu;
-menu=glutCreateMenu(processMenuEvents);
-glutAddMenuEntry("60fps",1);
-glutAddMenuEntry("30fps",2);
-glutAddMenuEntry("24fps",3);
-glutAddMenuEntry("Nocap(physics locked)",4);
-glutAttachMenu(GLUT_RIGHT_BUTTON);
+    int menu;
+    menu=glutCreateMenu(processMenuEvents);
+    glutAddMenuEntry("60fps",1);
+    glutAddMenuEntry("30fps",2);
+    glutAddMenuEntry("24fps",3);
+    glutAddMenuEntry("Nocap(physics locked)",4);
+    glutAttachMenu(GLUT_RIGHT_BUTTON);
 }
 
 int main(int argc, char **argv)
@@ -119,9 +129,9 @@ int main(int argc, char **argv)
     glutCreateWindow("StepGameLoop Demo -Sphere");
     init();
     glutDisplayFunc(draw);
-  	glutIdleFunc(mixedStepLoop);
+    glutIdleFunc(mixedStepLoop);
     glutReshapeFunc(handleResize);
-  	createGLUTMenus();
+    createGLUTMenus();
     glutMainLoop();
     return 0;
 }
