@@ -61,7 +61,7 @@ void mixedStepLoop()
     queuedMilliseconds += timeElapsedMs ;
     if(fps<0)
     {
-	update();  // BEWARE, this might cause nausea since physics updating too fast.  
+	//update();  WARNING, will cause seizures and or nausea depending on the person since fast animation/color changes.  
         draw();
     }
     while(queuedMilliseconds >= responseTime) 
