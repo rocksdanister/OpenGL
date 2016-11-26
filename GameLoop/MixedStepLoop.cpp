@@ -5,8 +5,9 @@ void mixedStepLoop()
 double now = glutGet(GLUT_ELAPSED_TIME);  // get the time at which draw function is called
 double timeElapsedMs =(now-prev);  // time difference calculate b/w current and previous loop
 queuedMilliseconds += timeElapsedMs ; // stores the time as chunks
-if(fps==0) // no fps cap, gamestate update is determined by the  physics function though, WARNING will get over 6000fps depending on the hardware
+if(fps==0) // no fps cap, gamestate update is determined by the  physics function , WARNING will get over 6000fps depending on the hardware
 {
+// add physics function if you want	
 // draw function goes here
 }
 while(queuedMilliseconds >= responseTime) {  // update it in intervals given by responseTime by substracting -responseTime , ie a new frame every 16.65ms (60fps) or..
