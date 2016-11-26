@@ -61,7 +61,7 @@ void mixedStepLoop()
     queuedMilliseconds += timeElapsedMs ;
     if(fps<0)
     {
-	update();    
+	update();  // BEWARE, this might cause nausea since physics updating too fast.  
         draw();
     }
     while(queuedMilliseconds >= responseTime) 
