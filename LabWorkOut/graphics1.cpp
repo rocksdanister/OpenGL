@@ -6,10 +6,6 @@
 #include<string.h>
 
 using namespace std;
-double queuedMilliseconds,prev,fps,responseTime;
-double xmo=0;
-double s;
-int flag=0;
 /*
 //ARAVIND
 int m, top=-1, arr[10][10], ar[10], sta[10], i, j, k=0, l;
@@ -61,8 +57,7 @@ void drawstr(GLuint x, GLuint y, const char* format, int length)
 
 void drawCircle(int x,int y)
 {
-        glMatrixMode(GL_MODELVIEW);
-        glLoadIdentity();
+        
         glColor3f(1,1,1);
         glTranslatef(x,y,-1);
         glutSolidSphere(50,100,100);
@@ -73,8 +68,10 @@ void draw()
 {
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
     drawCircle(100,100);
-    glFlush();
+   // glFlush();
     glutSwapBuffers();
 }
 
@@ -94,7 +91,7 @@ void initRendering()
 
 void handleResize(int w, int h)
 {
-       glViewport(0, 0, w, h);
+      // glViewport(0, 0, w, h);
        glMatrixMode(GL_PROJECTION);
        glLoadIdentity();
       // gluPerspective(45.0, (double)w / (double)h, 1.0, 200.0);
