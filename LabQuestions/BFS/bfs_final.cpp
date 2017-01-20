@@ -30,7 +30,7 @@ int top=-1;
 
 void drawCircle(double a,int x,int y)
 {
-		glLoadIdentity();
+        glLoadIdentity();
         glColor3f(a,a,a);
         glTranslatef(x,y,-1);
         glutSolidSphere(30,100,100);
@@ -113,7 +113,7 @@ void draw()
 
 void handleResize(int w, int h)
 {
-    glMatrixMode(GL_PROJECTION);  // Transformations being applied to Projection Matrix
+        glMatrixMode(GL_PROJECTION);  // Transformations being applied to Projection Matrix
 	glLoadIdentity();  // Always call after changing matrix
 	glViewport(0,0,w,h);
 	glOrtho((w/wx),w,(h/hy),h,1,200); // Here object is being moved along with window, wx & hy window size. Here clipping range is zNear=1,zFar=-200
