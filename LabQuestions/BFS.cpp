@@ -36,7 +36,7 @@ void drawCircle(double a,int x,int y)
         glColor3f(a,a,a);
         glTranslatef(x,y,-1);
         glutSolidSphere(30,100,100);
-   	    
+
 }
 
 void connectGraph(int a,int b)
@@ -62,7 +62,7 @@ void draw()
     {
     	drawCircle(V[i].color,V[i].x,V[i].y);
     }
-    
+
     for(i=0;i<N;i++)
     {
         temp=Q[i]->ptr;
@@ -78,12 +78,16 @@ void draw()
 		lis *temp1;
 		flag++;
 		sleep(2);
-	    V[0].color=0.5;
-		draw();		
+        for(int l=0;l<N;l++)
+        {
+        if(V[l].color==1)
+        {
+        V[l].color=0.5;
+		draw();
 		sleep(2);
 		top=0;
 		bot=0;
-		QU[top++]=V[0];
+		QU[top++]=V[l];
 		while(top!=bot)
 		{
 			tmp=QU[bot++];
@@ -93,18 +97,20 @@ void draw()
 				if(V[(temp1->data)-1].color==1)
 				{
 					V[(temp1->data)-1].color=0.5;
-					draw();		
+					draw();
 					sleep(2);
 					QU[top++]=V[(temp1->data)-1];
-					
+
 				}
 				temp1=temp1->ptr;
 			}
 			V[tmp.data-1].color=0;
-			draw();		
+			draw();
 			sleep(2);
 		}
-		
+        }
+        }
+
 	}
 }
 
@@ -125,11 +131,11 @@ void handleResize(int w, int h)
 
 int main(int argc, char **argv)
 {
-	
+
 	cout<<"Enter the no:of vertices:";
 	cin>>N;
 	 V=new vert[N];
-	
+
 	for(i=0;i<N;i++)
 	{
 		V[i].data=i+1;
