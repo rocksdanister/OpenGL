@@ -48,7 +48,7 @@ void displayf()
 int main(int argc, char **argv)
 {
 
-  glutInit(&argc, argv);
+  	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE);
 	glutInitWindowSize(800, 480);
 	glutInitWindowPosition(50, 50);	
