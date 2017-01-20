@@ -26,9 +26,7 @@ glVertex2f(1,0);
 glVertex2f(0,-1);
 glVertex2f(0,1);
 glEnd();
-//glLoadIdentity();
 draw();
-glFlush();
 glutSwapBuffers();
 printf("Enter required Transformation\n 1.Translate 2.Scale 3.Rotate 4.Reflection 0.Exit\n");
 scanf("%d",&ch);
@@ -65,46 +63,45 @@ scanf("%d",&ch);
 	scanf("%f %f",&tx,&ty);
 	for(i=0;i<n;i++)
       	{
-        x[i]-=tx;
-        y[i]-=ty;
+        	x[i]-=tx;
+       	    y[i]-=ty;
         }		
 		for(i=0;i<n;i++)
         {
-        x[i]=x[i]*cosf(theta)-y[i]*sinf(theta);
-        y[i]=x[i]*sinf(theta)+y[i]*cosf(theta);           
+        	x[i]=x[i]*cosf(theta)-y[i]*sinf(theta);
+        	y[i]=x[i]*sinf(theta)+y[i]*cosf(theta);           
         }
 		for(i=0;i<n;i++)
 		{
-		x[i]+=tx;
-		y[i]+ty;
+			x[i]+=tx;
+			y[i]+ty;
 		}
 		
-//    draw();
     glutPostRedisplay();
     }
 	if(ch==4)
 	{
-	printf("Enter Choice 1. x-axis 2. y-axis 3.origin\n");
-	scanf("%d",&ch);
+		printf("Enter Choice 1. x-axis 2. y-axis 3.origin\n");
+		scanf("%d",&ch);
 	if(ch==1)
 	{
-	for(i=0;i<n;i++)
-	y[i]=-1*y[i];
+		for(i=0;i<n;i++)
+			y[i]=-1*y[i];
 	
 	}
 	else if(ch==2)
 	{
-	for(i=0;i<n;i++)
-	x[i]=-1*x[i];
+		for(i=0;i<n;i++)
+			x[i]=-1*x[i];
 
 	}
 	else
 	{
-	for(i=0;i<n;i++)
-	{
-	x[i]=-1*x[i];
-	y[i]=-1*y[i];
-	}
+		for(i=0;i<n;i++)
+		{
+			x[i]=-1*x[i];
+			y[i]=-1*y[i];
+		}
 	}	
 
 	glutPostRedisplay();
@@ -121,8 +118,8 @@ printf("Enter No: of Vertices\n");
 scanf("%d",&n);
 for(i=0;i<n;i++)
 {
-printf("Enter %d vertex points (x,y) ( %dx%d Window Size ) \n",i+1,size,size);
-scanf("%f %f",&x[i],&y[i]);
+	printf("Enter %d vertex points (x,y) ( %dx%d Window Size ) \n",i+1,size,size);
+	scanf("%f %f",&x[i],&y[i]);
 }
 glutInit(&argc,argv);
 glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB);
