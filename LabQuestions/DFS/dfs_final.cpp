@@ -1,15 +1,15 @@
 #include <iostream>
 #include <stdlib.h>
-#include<time.h>
 #include<stdio.h>
 #include <GL/glut.h>
-#include<unistd.h>
+#include<unistd.h>  
 
 using namespace std;
 struct lis{
 	int data;
 	lis *ptr;
 };
+
 class vert
 {
 	public:
@@ -17,9 +17,9 @@ class vert
 	int data;
 	double color;
 };
+
 vert *V;
-int i,j;
-int N;
+int i,j,N,wx,hy;
 lis *node;
 lis *temp;
 lis *Q[20];
@@ -27,7 +27,7 @@ int flag=0;
 
 void drawCircle(double a,int x,int y)
 {
-	    glLoadIdentity();
+	    glLoadIdentity();  // refresh modelView matrix 
         glColor3f(a,a,a);
         glTranslatef(x,y,-1);
         glutSolidSphere(30,100,100);
@@ -39,7 +39,7 @@ void connectGraph(int a,int b)
 glLoadIdentity();
 glColor3f(0,0,0);
 glBegin(GL_LINES);
-glVertex3f(V[a].x,V[a].y,-80);
+glVertex3f(V[a].x,V[a].y,-80);  // Line is drawn behind sphere in 3D
 glVertex3f(V[b].x,V[b].y,-80);
 glEnd();
 
@@ -54,7 +54,7 @@ void DFS_VISIT(int a,vert V[],lis *Q[])
 	cout<<"Node "<<V[a].data<<" is gray\n";
 	//getchar();
 	draw();
-	sleep(3);
+	sleep(3);  // wait for animation.
 	temp1=Q[a]->ptr;
 	while(temp1!=NULL)
 	{
@@ -75,10 +75,10 @@ void DFS_VISIT(int a,vert V[],lis *Q[])
 
 void draw()
 {
-
+	glEnable(GL_DEPTH_TEST);  // Enable hidden surface elimination in 3D
+    glClearColor(0.7f, 0.8f, 1.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    glMatrixMode(GL_MODELVIEW);
     for(i=0;i<N;i++)
     {
     	drawCircle(V[i].color,V[i].x,V[i].y);
@@ -94,9 +94,10 @@ void draw()
         }
     }
     glutSwapBuffers();
-    if(flag==0)
+    
+    if(flag==0)  // Code execution & Animation part.
 	{
-		flag++;
+		flag=1;
 		sleep(2);
 	    	for(int l=0;l<N;l++)
 		{
@@ -109,30 +110,22 @@ void draw()
 }
 
 
-
-
-void initRendering()
-{
-        glEnable(GL_DEPTH_TEST);
-        glClearColor(0.7f, 0.8f, 1.0f, 1.0f);
-}
-
-
-
 void handleResize(int w, int h)
 {
-       glMatrixMode(GL_PROJECTION);
-       glLoadIdentity();
-       glOrtho(0,700,0,700,1,200);
+	glMatrixMode(GL_PROJECTION);  // Transformations being applied to Projection Matrix
+	glLoadIdentity();  // Always call after changing matrix
+	glViewport(0,0,w,h);
+	glOrtho((w/wx),w,(h/hy),h,1,200); // Here object is being moved along with window, wx & hy window size. Here clipping range is zNear=1,zFar=-200
+	glMatrixMode(GL_MODELVIEW); // Transformations on ModelView Matrix(default)
 }
 
 
 int main(int argc, char **argv)
 {
-	
+	wx=700;hy=700;
 	cout<<"Enter the no:of vertices:";
 	cin>>N;
-	 V=new vert[N];
+	V=new vert[N];
 	
 	for(i=0;i<N;i++)
 	{
@@ -163,11 +156,10 @@ int main(int argc, char **argv)
 	glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowSize(700, 700);
-    glutInitWindowPosition(100, 100);
+    glutInitWindowPosition(100, 100);  
     glutCreateWindow("DFS");
-    initRendering();
     glutDisplayFunc(draw);
-    glutReshapeFunc(handleResize);
+    glutReshapeFunc(handleResize);  // Invoked when window is resized
     glutMainLoop();
 }
 			
