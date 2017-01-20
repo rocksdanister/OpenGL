@@ -75,7 +75,7 @@ void DFS_VISIT(int a,vert V[],lis *Q[])
 
 void draw()
 {
-	glEnable(GL_DEPTH_TEST);  // Enable hidden surface elimination in 3D
+    glEnable(GL_DEPTH_TEST);  // Enable hidden surface elimination in 3D
     glClearColor(0.7f, 0.8f, 1.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -153,13 +153,13 @@ int main(int argc, char **argv)
 		}
 	}
 
-	glutInit(&argc, argv);
+    glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowSize(700, 700);
     glutInitWindowPosition(100, 100);  
     glutCreateWindow("DFS");
     glutDisplayFunc(draw);
-    glutReshapeFunc(handleResize);  // Invoked when window is resized
+    glutReshapeFunc(handleResize);  // Invoked when window is resized & Initially.
     glutMainLoop();
 }
 			
