@@ -52,7 +52,6 @@ void DFS_VISIT(int a,vert V[],lis *Q[])
 	lis *temp1;
 	V[a].color=0.5;
 	cout<<"Node "<<V[a].data<<" is gray\n";
-	//getchar();
 	draw();
 	sleep(3);  // wait for animation.
 	temp1=Q[a]->ptr;
@@ -115,7 +114,7 @@ void handleResize(int w, int h)
 	glMatrixMode(GL_PROJECTION);  // Transformations being applied to Projection Matrix
 	glLoadIdentity();  // Always call after changing matrix
 	glViewport(0,0,w,h);
-	glOrtho((w/wx),w,(h/hy),h,1,200); // Here object is being moved along with window, wx & hy window size. Here clipping range is zNear=1,zFar=-200
+	glOrtho((w/wx),w,(h/hy),h,1,200); // Object scaling, ws & hy window size. Here clipping range is zNear=1,zFar=-200
 	glMatrixMode(GL_MODELVIEW); // Transformations on ModelView Matrix(default)
 }
 
@@ -159,7 +158,7 @@ int main(int argc, char **argv)
     glutInitWindowPosition(100, 100);  
     glutCreateWindow("DFS");
     glutDisplayFunc(draw);
-    glutReshapeFunc(handleResize);  // Invoked when window is resized & Initially.
+    glutReshapeFunc(handleResize);  // Invoked when window is resized & program start
     glutMainLoop();
 }
 			
