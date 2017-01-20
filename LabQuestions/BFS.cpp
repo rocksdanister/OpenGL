@@ -1,6 +1,5 @@
 #include <iostream>
 #include <stdlib.h>
-#include<time.h>
 #include<stdio.h>
 #include <GL/glut.h>
 #include<unistd.h>
@@ -32,7 +31,7 @@ int top=-1;
 
 void drawCircle(double a,int x,int y)
 {
-	    glLoadIdentity();
+	glLoadIdentity();
         glColor3f(a,a,a);
         glTranslatef(x,y,-1);
         glutSolidSphere(30,100,100);
@@ -54,10 +53,10 @@ void draw();
 
 void draw()
 {
-
+    
+    glEnable(GL_DEPTH_TEST);
+    glClearColor(0.7f, 0.8f, 1.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-    glMatrixMode(GL_MODELVIEW);
     for(i=0;i<N;i++)
     {
     	drawCircle(V[i].color,V[i].x,V[i].y);
@@ -114,24 +113,19 @@ void draw()
 	}
 }
 
-void initRendering()
-{
-        glEnable(GL_DEPTH_TEST);
-        glClearColor(0.7f, 0.8f, 1.0f, 1.0f);
-}
-
-
-
 void handleResize(int w, int h)
 {
-       glMatrixMode(GL_PROJECTION);
-       glLoadIdentity();
-       glOrtho(0,700,0,700,1,200);
+        glMatrixMode(GL_PROJECTION);  // Transformations being applied to Projection Matrix
+	glLoadIdentity();  // Always call after changing matrix
+	glViewport(0,0,w,h);
+	glOrtho((w/wx),w,(h/hy),h,1,200); // Here object is being moved along with window, wx & hy window size. Here clipping range is zNear=1,zFar=-200
+	glMatrixMode(GL_MODELVIEW); // Transformations on ModelView Matrix(default)
 }
 
 int main(int argc, char **argv)
 {
-
+	int wx,hy;
+	wx=700;hy=700;
 	cout<<"Enter the no:of vertices:";
 	cin>>N;
 	 V=new vert[N];
@@ -161,12 +155,11 @@ int main(int argc, char **argv)
 			}
 		}
 	}
-	glutInit(&argc, argv);
+    glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowSize(700, 700);
     glutInitWindowPosition(100, 100);
     glutCreateWindow("BFS");
-    initRendering();
     glutDisplayFunc(draw);
     glutReshapeFunc(handleResize);
     glutMainLoop();
