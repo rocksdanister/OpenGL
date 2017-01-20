@@ -27,7 +27,7 @@ int flag=0;
 
 void drawCircle(double a,int x,int y)
 {
-	    glLoadIdentity();  // refresh modelView matrix 
+	glLoadIdentity();  // refresh modelView matrix 
         glColor3f(a,a,a);
         glTranslatef(x,y,-1);
         glutSolidSphere(30,100,100);
