@@ -20,8 +20,7 @@ class vert
 vert *V;
 vert tmp;
 vert QU[20];
-int i,j;
-int N;
+int i,j,N,wx,hy;
 lis *node;
 lis *temp;
 lis *Q[20];
@@ -124,7 +123,6 @@ void handleResize(int w, int h)
 
 int main(int argc, char **argv)
 {
-	int wx,hy;
 	wx=700;hy=700;
 	cout<<"Enter the no:of vertices:";
 	cin>>N;
