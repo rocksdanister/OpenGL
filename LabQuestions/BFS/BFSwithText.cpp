@@ -42,7 +42,7 @@ void drawstr(GLuint x, GLuint y, const char* format, int length)
 
 void drawCircle(double a,int x,int y)
 {
-		    glLoadIdentity();
+	glLoadIdentity();
         glColor3f(a,a,a);
         glTranslatef(x,y,-1);
         glutSolidSphere(30,100,100);
