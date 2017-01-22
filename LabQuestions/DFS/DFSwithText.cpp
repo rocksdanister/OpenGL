@@ -29,7 +29,6 @@ int flag=0;
 string str;
 GLvoid *font_style = GLUT_BITMAP_HELVETICA_18;
 
-
 void drawstr(GLuint x, GLuint y, const char* format, int length)
 {
 
@@ -41,7 +40,7 @@ void drawstr(GLuint x, GLuint y, const char* format, int length)
 void drawCircle(double a,int x,int y)
 {
 		
-		glLoadIdentity();  // refresh modelView matrix 
+	glLoadIdentity();  // refresh modelView matrix 
         glColor3f(a,a,a);
         glTranslatef(x,y,-1);
         glutSolidSphere(30,100,100);
