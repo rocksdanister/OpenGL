@@ -27,7 +27,7 @@ lis *temp;
 lis *Q[20];
 int flag=0;
 string str;
-GLvoid *font_style = GLUT_BITMAP_HELVETICA_18;
+GLvoid *font_style = GLUT_BITMAP_TIMES_ROMAN_24;
 
 void drawstr(GLuint x, GLuint y, const char* format, int length)
 {
