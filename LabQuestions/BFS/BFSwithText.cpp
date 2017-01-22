@@ -72,7 +72,7 @@ void draw()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     for(i=0;i<N;i++)
     {
-    	str=std::to_string(i+1);
+    	str=std::to_string(V[i].data);
     	drawCircle(V[i].color,V[i].x,V[i].y);
     }
 
