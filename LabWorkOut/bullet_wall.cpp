@@ -312,7 +312,7 @@ int main(int argc, char **argv)
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowSize(700, 700);
     glutInitWindowPosition(100, 100);
-    glutCreateWindow("Test v1");
+    glutCreateWindow("OpenGL - Rotating a Cube");
     initRendering();
     glutDisplayFunc(drawCube);
 	  glutIdleFunc(mixedStepLoop);
