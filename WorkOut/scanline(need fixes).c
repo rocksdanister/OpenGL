@@ -49,9 +49,10 @@ f1=0;
             {
 			glReadPixels(j+1,i,1,1,GL_RGB,GL_FLOAT,a);	
 			if(((a[0]==1)&&(a[1]==1)&&(a[2]==1))||f1==0)	
-			{    f1=1;        
+			{    
+				f1=1;        
 				s[t][0]=j;
-            	s[t++][1]=i;       
+            			s[t++][1]=i;       
 			}			
             }
         
@@ -136,7 +137,6 @@ void init()
 glClearColor(1,1,1,0);
 glClear(GL_COLOR_BUFFER_BIT);
 glOrtho(0.0f, size, 0.0f,size, 0.0f, 1.0f);
-//glScaled(2,2,2);
 draw();
 glFlush();
 slope();
