@@ -132,7 +132,7 @@ void handleResize(int w, int h)
 	glMatrixMode(GL_PROJECTION);  // Transformations being applied to Projection Matrix
 	glLoadIdentity();  // Always call after changing matrix
 	glViewport(0,0,w,h);
-	glOrtho((w/wx),w,(h/hy),h,1,200); // Object scaling, ws & hy window size. Here clipping range is zNear=1,zFar=-200
+	glOrtho(0,w,0,h,1,200); // Object scaling. Here clipping range is zNear=1,zFar=-200
 	glMatrixMode(GL_MODELVIEW); // Transformations on ModelView Matrix(default)
 }
 
