@@ -31,7 +31,7 @@ for(i=0;i<500;)
 		
 		glBegin(GL_QUADS);
 			glVertex2i(i,j+50);			p[k].a[0][0]=i;p[k].a[0][1]=j+50;
-			glVertex2i(i+50,j+50);		p[k].a[1][0]=i+50;p[k].a[1][1]=j+50;
+			glVertex2i(i+50,j+50);			p[k].a[1][0]=i+50;p[k].a[1][1]=j+50;
 			glVertex2i(i+50,j);			p[k].a[2][0]=i+50;p[k].a[2][1]=j;
 			glVertex2i(i,j);			p[k].a[3][0]=i;p[k++].a[3][1]=j;
 		glEnd();
@@ -48,7 +48,7 @@ for(i=0;i<500;)
 		glBegin(GL_QUADS);
 			glVertex2i(i,j);			p[k].a[0][0]=i;p[k].a[0][1]=j;
 			glVertex2i(i+50,j);			p[k].a[1][0]=i+50;p[k].a[1][1]=j;
-			glVertex2i(i+50,j-50);		p[k].a[2][0]=i+50;p[k].a[2][1]=j-50;
+			glVertex2i(i+50,j-50);			p[k].a[2][0]=i+50;p[k].a[2][1]=j-50;
 			glVertex2i(i,j-50);			p[k].a[3][0]=i;p[k++].a[3][1]=j-50;
 		glEnd();
 	i=i+50;
@@ -63,7 +63,7 @@ for(i=0;i<500;)
 	if(j!=0)
 	{	
 	glBegin(GL_QUADS);
-		glVertex2i(i,j-50);			p[k].a[0][0]=i;p[k].a[0][1]=j-50;
+		glVertex2i(i,j-50);		p[k].a[0][0]=i;p[k].a[0][1]=j-50;
 		glVertex2i(i+50,j-50);		p[k].a[1][0]=i+50;p[k].a[1][1]=j-50;
 		glVertex2i(i+50,j-100);		p[k].a[2][0]=i+50;p[k].a[2][1]=j-100;
 		glVertex2i(i,j-100);		p[k].a[3][0]=i;p[k++].a[3][1]=j-100;
