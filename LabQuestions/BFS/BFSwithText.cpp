@@ -136,6 +136,14 @@ void handleResize(int w, int h)
 	glMatrixMode(GL_MODELVIEW); // Transformations on ModelView Matrix(default)
 }
 
+void keyboard(unsigned char key, int x, int y)
+{
+   switch (key) {
+      case 27:
+         exit(0);
+   }
+}
+
 int main(int argc, char **argv)
 {
 	wx=700;hy=700;
@@ -175,5 +183,6 @@ int main(int argc, char **argv)
     glutCreateWindow("BFS");
     glutDisplayFunc(draw);
     glutReshapeFunc(handleResize);
+    glutKeyboardFunc(keyboard);
     glutMainLoop();
 }
