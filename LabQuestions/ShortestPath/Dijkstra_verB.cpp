@@ -136,17 +136,17 @@ void Dijkstra(int source)
 }
 void draw()
 {
-    cout<<"\nSTARTING\n";
+   
     glEnable(GL_DEPTH_TEST);
     glClearColor(0.7f, 0.8f, 1.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     for(int i=0;i<N;i++)
     {
-        cout<<"\nSTARTING\n";
+        
     	str=std::to_string(V[i].data);
     	drawCircle(V[i].color,V[i].x,V[i].y);
     }
-    cout<<"\nSTARTING1\n";
+    
     connectGraph();
 
     glutSwapBuffers();
