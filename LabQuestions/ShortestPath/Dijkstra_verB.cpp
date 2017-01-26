@@ -58,6 +58,7 @@ void connectGraph()
 {
     glLoadIdentity();
     lis *temp;
+    glLineWidth(2);
     for(int i=0;i<N;i++)
     {
         temp=Q[i]->ptr;
