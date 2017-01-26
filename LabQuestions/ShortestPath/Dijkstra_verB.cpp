@@ -20,7 +20,7 @@ class vert
     int dist;
 	float color;
 };
-
+int mx,my;
 vert *V;
 int *previo;
 vert tmp;
