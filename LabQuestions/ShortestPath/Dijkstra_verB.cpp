@@ -50,7 +50,7 @@ void drawCircle(double a,int x,int y)
     glutSolidSphere(30,100,100);
     glTranslatef(-x,-y,0);
     glColor3f(1,0,0);
-    drawstr(x,y, str.c_str(), str.length());
+    drawstr(x-5,y-5, str.c_str(), str.length());
 
 }
 
