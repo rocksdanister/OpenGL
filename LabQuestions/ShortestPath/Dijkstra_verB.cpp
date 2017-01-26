@@ -56,7 +56,6 @@ void drawCircle(double a,int x,int y)
 
 void connectGraph()
 {
-    glLoadIdentity();
     glLineWidth(2);
     lis *temp;
     for(int i=0;i<N;i++)
@@ -64,22 +63,28 @@ void connectGraph()
         temp=Q[i]->ptr;
         while(temp!=NULL)
         {
+
                 if(temp->status==0)    
                 glColor3f(0,0,0);
                 else if((previo[temp->data-1]==i)||(previo[i]==(temp->data-1)))
                  glColor3f(0,1,0);
                 else
                  glColor3f(1,0,0);
-          
+                
                 glBegin(GL_LINES);
                 glVertex3f(V[i].x,V[i].y,-80);
                 glVertex3f(V[temp->data-1].x,V[temp->data-1].y,-80);
                 glEnd();
+                glColor3f(0,0,0);
+                str=std::to_string(temp->weight);
+                mx=(V[i].x+V[temp->data-1].x)/2;my=((V[i].y+V[temp->data-1].y)/2)+10;
+                drawstr(mx,my, str.c_str(), str.length());
              temp=temp->ptr;   
+            }
         }
     }
-}
     
+ 
 
 int length(int a,int b)
 {
