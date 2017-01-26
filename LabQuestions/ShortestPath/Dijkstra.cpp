@@ -45,13 +45,16 @@ int s_size=0,wx,hy,N,min_ver,flag=0;
 priority_queue<vertex,vector<vertex>,myComparator > pq; //Queue for maintaining Min Heap
 
 string str;
-GLvoid *font_style = GLUT_BITMAP_TIMES_ROMAN_24;
+GLvoid *font_style = GLUT_BITMAP_HELVETICA_18;
 
 void display();
 
 void drawstr(GLuint x, GLuint y, const char* format, int length)
 {
-
+  if(*format=='i')
+  {
+  	glTranslatef(-22,0,0);
+  }	
   glRasterPos2i(x, y);  
   for(int i=0; i<length; ++i)
     glutBitmapCharacter(font_style, *(format+i) );
@@ -59,11 +62,11 @@ void drawstr(GLuint x, GLuint y, const char* format, int length)
 
 void drawCircle(double a,int x,int y)
 {
-	glLoadIdentity();
+  glLoadIdentity();
   glColor3f(a,a,a);
   glTranslatef(x,y,-1);
-  glutSolidSphere(30,100,100);
-  glTranslatef(-x,-y,0);
+  glutSolidSphere(35,100,100);
+  glTranslatef(-x-5,-y-5,0);
   glColor3f(0.7,0.4,0.2);
   drawstr(x,y, str.c_str(), str.length());
 }
@@ -92,11 +95,14 @@ void relax(int n,lis *v,int w)
 
 void display()
 {
-	glEnable(GL_DEPTH_TEST);
+  glEnable(GL_DEPTH_TEST);
   glClearColor(0.4f, 0.3f, 0.6f, 1.0f);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   for(int i=0;i<N;i++)
     {
+    	if(V[i].distance==100)
+    	str="infinity";
+    	else
     	str=std::to_string(V[i].distance);
     	drawCircle(V[i].color,V[i].x,V[i].y);
     }
@@ -141,14 +147,13 @@ void handleResize(int w, int h)
   glMatrixMode(GL_PROJECTION);  
 	glLoadIdentity();  
 	glViewport(0,0,w,h);
-	glOrtho((w/wx),w,(h/hy),h,1,200); 
+	glOrtho(0,w,0,h,1,200); 
 	glMatrixMode(GL_MODELVIEW); 
 }
 
 int main(int argc,char *argv[])
 {
   int dis,j,posx,posy;
-  wx=700,hy=700;
 
 	cout<<"Enter the no of vertices: ";
 	cin>>N;
