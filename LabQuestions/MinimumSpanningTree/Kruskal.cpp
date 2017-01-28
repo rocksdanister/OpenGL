@@ -28,7 +28,7 @@ lis *adj[20], *makev[20], *node, *temp;
 
 edge e_sort[20],A[20],stemp;
 
-int N,E,wx,hy;
+int N,E;
 
 int Asize=0;  //Counter for Non-cyclic edge list A
 int esize=0;  //Counter for total number of edges
@@ -213,7 +213,6 @@ void handleResize(int w, int h)
 int main(int argc,char *argv[])
 {
     int dis,j,posx,posy,e1,e2;
-    wx=700,hy=700;
 
     cout<<"Enter the no of vertices: ";
     cin>>N;
