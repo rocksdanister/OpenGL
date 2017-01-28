@@ -1,4 +1,4 @@
 ## How To Compile
 To compile DFSwithText code use new version of g++ compiler: `g++ -std=c++11 DFSwithText.cpp -lGL -lglut`
 
-![alt tag](https://media.giphy.com/media/l3q2Vcq46lyrWxY3u/giphy.gif)
+![Alt text](/WorkOut/temp_files/dfs.gif?raw=true "DFS")
