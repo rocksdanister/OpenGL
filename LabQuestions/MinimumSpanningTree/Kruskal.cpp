@@ -73,7 +73,7 @@ void connectGraph(int a,int b)
      }
    }
   if(found==1) 
-  	glColor3f(0,1,0);            //Non Cyclic edges are coloured green
+   glColor3f(0,1,0);            //Non Cyclic edges are coloured green
   else
    glColor3f(0,0,0);            //Cyclic edges are coloured black
   glBegin(GL_LINES);
@@ -85,8 +85,8 @@ void connectGraph(int a,int b)
 
 void union_set(int u,int v)      //Union is to merge two disjoint sets u and v with unique elements 
 {
-	 lis *utemp1,*vtemp1,*tempnode,*tempnode1;
-	 utemp1=makev[u-1];
+     	 lis *utemp1,*vtemp1,*tempnode,*tempnode1;
+  	 utemp1=makev[u-1];
 	 vtemp1=makev[v-1];
 	 lis *node,*node1;
 	 node=makev[vtemp1->data-1];
@@ -100,10 +100,10 @@ void union_set(int u,int v)      //Union is to merge two disjoint sets u and v w
 		utemp1->next=tempnode;
 		node=node->next;
 	 }
-   utemp1=makev[u-1];
+   	 utemp1=makev[u-1];
 	 vtemp1=makev[v-1];
 	 node1=makev[utemp1->data-1];
-   while(node1!=NULL)
+   	 while(node1!=NULL)
 	  {
 		 tempnode1=new lis;
 		 tempnode1->data=node1->data;
@@ -123,17 +123,17 @@ int find_set(int u,int v)     //Find is to check if two sets u and v are disjoin
 	vtemp=makev[v-1];
 	while(utemp!=NULL)
 	{
-       while(vtemp!=NULL)
-       {
-       	if(utemp->data==vtemp->data)
+         while(vtemp!=NULL)
+          {
+       	   if(utemp->data==vtemp->data)
        		found=1;
-       	vtemp=vtemp->next;
-       }
-      utemp=utemp->next;
-      vtemp=makev[v-1];
-    }
+       	    vtemp=vtemp->next;
+           }
+         utemp=utemp->next;
+         vtemp=makev[v-1];
+        }
    if(found==1)
-   	 return 0;
+     return 0;
    else
      return 1;
 }
@@ -192,8 +192,8 @@ void display()
     glutSwapBuffers();
     
     if(flag==0)     // Needs to be called only once.
-	   {
-	     flag=1;	     
+     {
+       flag=1;	     
        display();
        sleep(2);	     
        Kruskal();
