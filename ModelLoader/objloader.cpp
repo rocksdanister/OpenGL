@@ -6,7 +6,7 @@ GLfloat angle;
 void drawOBJ(char *fname)
 {
  FILE *fp;
- int read;
+ int length;
  GLfloat x, y, z;
  fp=fopen(fname,"r");
  char ch;
@@ -15,8 +15,8 @@ void drawOBJ(char *fname)
  glBegin(GL_POINTS);
  	while(!(feof(fp)))
  	{
- 		read=fscanf(fp,"%c %f %f %f",&ch,&x,&y,&z);
- 		if(read==4&&ch=='v')
+ 		length=fscanf(fp,"%c %f %f %f",&ch,&x,&y,&z);
+ 		if(length==4&&ch=='v')
  		{
  			glVertex3f(x,y,z);
  		}
@@ -29,27 +29,27 @@ void drawOBJ(char *fname)
 void draw()
 {
     glClearColor (0.0,0.0,0.0,1.0); 
-   	glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-   	glPushMatrix();
-    glTranslatef(0,-50,-150);
-    glScalef(0.1,0.1,0.1);
-    glRotatef(angle,0,1,0);
-   	drawOBJ("object.obj");
-   	angle=angle+0.5;
-   	if(angle>360)
-   		angle=0;
-   	glPopMatrix();
-   	glutSwapBuffers();
+    glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glPushMatrix();
+     glTranslatef(0,-50,-150);
+     glScalef(0.1,0.1,0.1);
+     glRotatef(angle,0,1,0);
+     drawOBJ("object.obj");
+     angle=angle+0.5;
+     if(angle>360)
+    	angle=0;
+     glPopMatrix();
+    glutSwapBuffers();
  
 }
 
 void handleResize(int w,int h)
 {
     glMatrixMode(GL_PROJECTION);  
-	glLoadIdentity();  
-	glViewport(0,0,w,h);
-	gluPerspective (60, (GLfloat)w / (GLfloat)h, 0.1, 1000.0);
-	glMatrixMode(GL_MODELVIEW); 
+    glLoadIdentity();  
+    glViewport(0,0,w,h);
+    gluPerspective (60, (GLfloat)w / (GLfloat)h, 1, 500);
+    glMatrixMode(GL_MODELVIEW); 
     glLoadIdentity();
 
 }
