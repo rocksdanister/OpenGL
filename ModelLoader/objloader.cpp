@@ -38,7 +38,7 @@ void draw()
      angle=angle+0.5;
      if(angle>360)
     	angle=0;
-     glPopMatrix();
+    glPopMatrix();
     glutSwapBuffers();
  
 }
