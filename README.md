@@ -1,2 +1,2 @@
-# OpenGL
-#### My amateur attemps at opengl, mostly goofing around and practicing...
+## Notes
+makefile provided, just enter `make` in terminal to compile the code.
