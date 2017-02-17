@@ -19,7 +19,7 @@ fp=fopen("temp.obj","r");
 		i=0;
 		fscanf(fp,"%s",line);
 
-		if(line[0]=='v'&&line[1]!='n')
+		if(line[0]=='v'&&line[1]!='n'&&line[1]!='t')
 		{
 			while(i<3)
 			{
