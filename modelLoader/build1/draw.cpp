@@ -48,7 +48,11 @@ void OnInit()
   glMaterialfv(GL_FRONT, GL_SPECULAR, objcolor);
   glMateriali(GL_FRONT, GL_SHININESS, 128);
 }
- 
+ void deleteInitial()
+{
+system("rm temp.obj");
+}
+
 
 void draw()
 {
@@ -69,7 +73,7 @@ glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, objcolor);
     OnInit();
     opt2=1;
     glClearColor (0.0,0.0,0.0,1.0); 
-   	glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
     gluLookAt(  x, 1.0f, z,
 				x+lx, 1.0f, z+lz,
@@ -79,9 +83,10 @@ glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, objcolor);
     //glTranslatef(0,0,-10);
     //glTranslatef(0,50,-2);
     //glScalef(0.1,0.1,0.1);
-    initialOBJ();
-    objDraw();
-    optimisationList();
+    	initialOBJ();
+    	objDraw();
+    	optimisationList();
+    	deleteInitial();
    	glPopMatrix();
    	glutSwapBuffers();
  	}
