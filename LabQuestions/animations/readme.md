@@ -1,1 +1,2 @@
-using opensource helicopter obj files, type make in terminal to compile the code.
+## Helicopter Rise
+using opensource helicopter obj files & modelloader code, type `make` in terminal to compile the code.
