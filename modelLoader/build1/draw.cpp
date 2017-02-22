@@ -108,7 +108,7 @@ glLightfv(GL_LIGHT0, GL_POSITION, light0_position);
     //glColor3f(0.5,0.5,0.5);
     //glTranslatef(0,0,-10);
     //glTranslatef(0,50,-2);
-    //glScalef(0.1,0.1,0.1);
+    glScalef(0.4,0.4,0.4);
     update();
     glRotatef(angleR,0,1,0);
     glCallList(dlist);
