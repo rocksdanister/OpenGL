@@ -12,7 +12,7 @@ GLuint dlist;
 void initialSetup()
 {
 
-	system("cp helicopterfix.obj temp.obj");
+	system("cp porschefix.obj temp.obj");
 }
 
 
