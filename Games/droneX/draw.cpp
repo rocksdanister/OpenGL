@@ -2,6 +2,7 @@
 #include <SOIL/SOIL.h>
 #include <drone.h>
 #include <bits/stdc++.h>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -88,7 +89,8 @@ void update()
 
 
 void drawDrone()
-{
+{	
+	printf("POSITION: %d %d \n",movementX+40,movementY+40+500);
 	glBindTexture(GL_TEXTURE_2D, DRONETEXTURE); // drone texture active
 	glPushMatrix();
 		glTranslatef(40,500,0);
@@ -118,6 +120,25 @@ void drawObstacle(int posx,int posy, int type,int objX)
 	glPopMatrix();
 }
 int temp=0;
+
+void hitDetection()
+{
+
+
+	for(ii=0;ii<obstacleList.size();ii++)
+	{
+
+			//printf("HIT:%d %d \n",abs((movementX+40)-(obstacleList[ii].x+100+obstacleList[ii].objdisp)),abs((movementY+40+500)-(obstacleList[ii].y+50)));
+		if(	((abs((movementX+40)-(obstacleList[ii].x+100+obstacleList[ii].objdisp)))<=100) && (abs((movementY+40+500)-(obstacleList[ii].y+50))<=90))
+		{
+			printf("HIT:%d %d \n",abs((movementX+40)-(obstacleList[ii].x+100+obstacleList[ii].objdisp)),abs((movementY+40+500)-(obstacleList[ii].y+50)));
+			exit(0);
+		}
+	}
+
+
+}
+
 void draw()
 {
 	glClearColor (0.0, 0.0, 0.0, 0.0);
@@ -189,6 +210,6 @@ void draw()
 	{
 		temp++;
 	}
-
+	hitDetection();
 	glutSwapBuffers();
 }
