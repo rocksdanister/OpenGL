@@ -70,7 +70,7 @@ glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, objcolor);
 
 	if(opt2!=1)
   {
-    OnInit();
+   // OnInit();
     opt2=1;
     glClearColor (0.0,0.0,0.0,1.0); 
     glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
