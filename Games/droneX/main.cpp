@@ -37,10 +37,10 @@ int main(int argc, char** argv)
 
    glutInit(&argc, argv);
    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
-   //glutInitWindowSize(1000, 600);
+   glutInitWindowSize(1600, 900);
    glutInitWindowPosition(100, 100);
    glutCreateWindow("drone-x");
-   glutFullScreen();
+   //glutFullScreen();
    init();
    glutDisplayFunc(draw); //in draw.cpp
    glutIdleFunc(mixedStepLoop); // in frameupdate.cpp
