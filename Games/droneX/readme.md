@@ -1,4 +1,5 @@
 Work in progress project.
+
 Changelog:
 
 1. Added continuous scrolling background.
