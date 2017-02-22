@@ -129,9 +129,9 @@ void hitDetection()
 	{
 
 			//printf("HIT:%d %d \n",abs((movementX+40)-(obstacleList[ii].x+100+obstacleList[ii].objdisp)),abs((movementY+40+500)-(obstacleList[ii].y+50)));
-		if(	((abs((movementX+40)-(obstacleList[ii].x+100+obstacleList[ii].objdisp)))<=100) && (abs((movementY+40+500)-(obstacleList[ii].y+50))<=90))
+		if(	((abs((movementX+40)-(obstacleList[ii].x+100+obstacleList[ii].objdisp)))<=100) && (abs((movementY+500)-(obstacleList[ii].y+50))<=90))
 		{
-			printf("HIT:%d %d \n",abs((movementX+40)-(obstacleList[ii].x+100+obstacleList[ii].objdisp)),abs((movementY+40+500)-(obstacleList[ii].y+50)));
+			printf("HIT:%d %d \n",abs((movementX+40)-(obstacleList[ii].x+100+obstacleList[ii].objdisp)),abs((movementY+500)-(obstacleList[ii].y+50)));
 			exit(0);
 		}
 	}
