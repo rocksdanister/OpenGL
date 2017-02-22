@@ -32,15 +32,15 @@ int main(int argc, char** argv)
    //..frame-update setup
    queuedMilliseconds=0;
    prev0=0;
-   fps=40;
+   fps=60;
    responseTime=(1/fps)*1000;
 
    glutInit(&argc, argv);
    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
-   glutInitWindowSize(1000, 600);
+   //glutInitWindowSize(1000, 600);
    glutInitWindowPosition(100, 100);
    glutCreateWindow("drone-x");
-   //glutFullScreen();
+   glutFullScreen();
    init();
    glutDisplayFunc(draw); //in draw.cpp
    glutIdleFunc(mixedStepLoop); // in frameupdate.cpp
