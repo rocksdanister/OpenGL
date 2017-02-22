@@ -129,14 +129,14 @@ void staticBackground()
 glNewList(dlist[0], GL_COMPILE);
 
 glBindTexture(GL_TEXTURE_2D, SPACETEXTURE); // world texture active
-	glPushMatrix();
+	//glPushMatrix();
 		glBegin(GL_QUADS);
 			glTexCoord2f(0.0, 0.0); glVertex3f(0,0,-1.1);
 			glTexCoord2f(1.0, 0.0); glVertex3f(3840,0,-1.1);
 			glTexCoord2f(1.0, -1.0); glVertex3f(3840,1080,-1.1);                        
 			glTexCoord2f(0.0, -1.0); glVertex3f(0,1080,-1.1);
 		glEnd();
-	glPopMatrix();
+	//glPopMatrix();
 
 glEndList();
 }
@@ -147,14 +147,14 @@ void staticDrone()
 glNewList(dlist[1], GL_COMPILE);
 
 	glBindTexture(GL_TEXTURE_2D, DRONETEXTURE); // drone texture active
-	glPushMatrix();
+	//glPushMatrix();
 		glBegin(GL_QUADS);
 			glTexCoord2f(0.0, 0.0); glVertex3f(-40,-40,-1);
 			glTexCoord2f(1.0, 0.0); glVertex3f(40,-40,-1);
 			glTexCoord2f(1.0, -1.0); glVertex3f(40,40,-1);                        
 			glTexCoord2f(0.0, -1.0); glVertex3f(-40,40,-1);
 		glEnd();
-	glPopMatrix();
+	//glPopMatrix();
 
 glEndList();
 }
@@ -180,7 +180,8 @@ void draw()
 	glTranslatef(worldX,0,0);
 	glCallList(dlist[0]);
 	glPopMatrix();
-
+		
+	// OBSTACLES
 	for(ii=0;ii<obstacleList.size();ii++)
 	{
 		obstacleList[ii].objdisp-=5;
@@ -210,6 +211,7 @@ void draw()
 	{
 		temp++;
 	}
+		
 	//..DRONE
 	glPushMatrix();
 	glTranslatef(40,500,0);
