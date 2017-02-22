@@ -3,10 +3,12 @@ Work in progress project.
 Changelog:
 
 1. Added continuous scrolling background.
-2. Partial object collission detected( buggy at the moment).
+2. Partial object collision detected(somewhat xD).
 3. Fixed cloud generation algorithm.
-
+4. Displaylist implemented ( old code is: draw_backup.cpp ).
 
 Needs to be done:
 
-1. Immediate mode needs to be changed.
+1. Optimising collision detection.
+2. Optimising rendering resolution.
+3. Further optimising performance.
