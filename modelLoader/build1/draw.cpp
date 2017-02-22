@@ -99,7 +99,7 @@ glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, objcolor);
     gluLookAt(  x, 1.0f, z,
         x+lx, 1.0f, z+lz,
         0.0f, 1.0f, 0.0f);
-//glLightfv(GL_LIGHT0, GL_POSITION, LightPosition);
+glLightfv(GL_LIGHT0, GL_POSITION,light0_position);
     glPushMatrix();
     //glColor3f(0.5,0.5,0.5);
     //glTranslatef(0,0,-10);
