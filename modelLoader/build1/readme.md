@@ -2,7 +2,7 @@ Build v1.4
 
 Changelog:
 
-1. Fixed minor bug when loading some obj files when v,vn,vt etc are not in oder.
+1. Fixed minor bug when loading some obj files when v,vn,vt etc are not in order.
 2. Dynamic memory allocation using vector.
 3. Reverted to old lighting scheme ( see Known Issues ).
 
