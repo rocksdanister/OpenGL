@@ -1,4 +1,6 @@
-Work in progress project.
+Work in progress project. 
+
+Requirement: SOIL image loader, libsoil-dev
 
 Changelog:
 
