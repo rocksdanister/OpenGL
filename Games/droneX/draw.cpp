@@ -196,7 +196,7 @@ void draw()
 		}
 	}
 
-	if(temp==100)
+	if(temp==75)
 	{
 		temp=0;
 		tx= 2000+(rand()%600);
