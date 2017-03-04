@@ -1,5 +1,5 @@
 Work in progress project. 
-![Alt text](/WorkOut/temp_files/dronx.jpg =100x100 ?raw=true "droneX" | width=100)
+![Alt text](/WorkOut/temp_files/dronx.jpg =100x100 "droneX" | width=100)
 Requirement: SOIL image loader, libsoil-dev
 
 Changelog:
