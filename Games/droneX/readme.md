@@ -2,7 +2,7 @@ Work in progress project.
 
 ![Alt text](/WorkOut/temp_files/dronx.jpg?raw=true "droneX")
 
-Requirement: SOIL image loader, libsoil-dev
+Requirement: SOIL image loader, `sudo apt-get install libsoil-dev libsoil1`
 
 Changelog:
 
