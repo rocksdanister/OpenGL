@@ -11,6 +11,7 @@ Changelog:
 3. Fixed cloud generation algorithm.
 4. Displaylist implemented ( old code is: draw_backup.cpp ).
 5. Final score is displayed in terminal after game over.
+
 Needs to be done:
 
 1. Optimising collision detection.
