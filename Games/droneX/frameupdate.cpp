@@ -12,6 +12,7 @@ void mixedStepLoop()
         queuedMilliseconds -= responseTime;
         glutPostRedisplay();
     }
+    score+=(timeElapsedMs/1000);
     prev0=now;
 }
 
