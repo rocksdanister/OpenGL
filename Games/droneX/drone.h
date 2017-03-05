@@ -1,4 +1,4 @@
-extern double queuedMilliseconds,prev0,fps,responseTime;
+extern double queuedMilliseconds,prev0,fps,responseTime,score;
 extern int movementY,movementX, speed;
 
 void init();
