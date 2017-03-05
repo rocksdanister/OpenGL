@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <drone.h>
 
-double queuedMilliseconds,prev0,fps,responseTime;
+double queuedMilliseconds,prev0,fps,responseTime,score;
 
 void reshape(int w, int h)
 {
