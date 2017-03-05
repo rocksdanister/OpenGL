@@ -197,7 +197,7 @@ void draw()
 		}
 	}
 
-	if(temp==75)
+	if(temp==50)
 	{
 		temp=0;
 		tx= 2000+(rand()%600);
@@ -217,7 +217,7 @@ void draw()
 	glPushMatrix();
 	glTranslatef(40,500,0);
 	glTranslatef(movementX,movementY,0);
-    glRotatef(-angleRotate,0,0,1);
+        glRotatef(-angleRotate,0,0,1);
 	glCallList(dlist[1]);
 	glPopMatrix();
 	hitDetection();
