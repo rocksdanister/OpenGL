@@ -1,4 +1,4 @@
-New version with major changes in filemanangement.
+New version with major changes in filemanangement & model transformation.
 
 Press A and D to load different images in the folder.
 
