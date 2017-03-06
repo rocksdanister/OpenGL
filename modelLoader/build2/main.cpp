@@ -58,7 +58,7 @@ if(key==65||key==97)
 }
 if(key==68||key==100)
 {	
-	if(imageNo<(elements-1))
+	if(imageNo<(elements-2))
 	imageNo++;
 
 }
