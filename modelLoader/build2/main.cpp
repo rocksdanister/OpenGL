@@ -65,6 +65,7 @@ if(key==68||key==100)
 
 opt2=0;
 clearp_data();
+angleR=0;angleZ=0;
 initialSetup();
 }
 
