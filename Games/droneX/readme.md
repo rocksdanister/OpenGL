@@ -11,7 +11,7 @@ Changelog:
 3. Fixed cloud generation algorithm.
 4. Displaylist implemented ( old code is: draw_backup.cpp ).
 5. Added Score board.
-6. Bounds set.
+6. Boundary configured.
 
 Needs to be done:
 
