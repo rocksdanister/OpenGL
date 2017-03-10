@@ -74,7 +74,7 @@ int ii;
 void update()
 {
 
-	worldX-=5;
+	worldX-=10;
 	if(worldX<-1920)
 		worldX=0;
 
