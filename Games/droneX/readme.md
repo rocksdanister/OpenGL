@@ -10,7 +10,8 @@ Changelog:
 2. Partial object collision detected(somewhat xD).
 3. Fixed cloud generation algorithm.
 4. Displaylist implemented ( old code is: draw_backup.cpp ).
-5. Final score is displayed in terminal after game over.
+5. Added Score board.
+6. Bounds set.
 
 Needs to be done:
 
