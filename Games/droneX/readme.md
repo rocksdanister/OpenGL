@@ -1,6 +1,6 @@
 Work in progress project. 
 
-![Alt text](/WorkOut/temp_files/donx.jpg?raw=true "droneX")
+![Alt text](/WorkOut/temp_files/dronx.jpg?raw=true "droneX")
 
 Requirement: SOIL image loader, `sudo apt-get install libsoil-dev libsoil1`
 
