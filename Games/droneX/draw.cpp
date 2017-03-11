@@ -100,6 +100,17 @@ void drawObstacle(int posx,int posy, int type,int objX)
 }
 int temp=0;
 
+void resetFunc()
+{
+temp=0;
+worldX=0;
+angleRotate=0;
+score=0;
+movementX=0;
+movementY=0;
+obstacleList.clear();
+}
+
 void hitDetection()
 {
 
@@ -110,8 +121,9 @@ void hitDetection()
 		if(((abs((movementX+40)-(obstacleList[ii].x+100+obstacleList[ii].objdisp)))<=100) && (abs((movementY+500)-(obstacleList[ii].y+50))<=90))
 		{
 		//printf("\t\tHIT:%d %d %d %d \n",abs((movementX+40)-(obstacleList[ii].x+100+obstacleList[ii].objdisp)),abs((movementY+500)-(obstacleList[ii].y+50)),(movementY+500),(obstacleList[ii].y+50));
-		printf("\t\tYOUR SCORE: %f \n",score);
-		exit(0);
+		//printf("\t\tYOUR SCORE: %f \n",score);
+		//exit(0);
+		resetFunc();	
 		}
 	}
 
