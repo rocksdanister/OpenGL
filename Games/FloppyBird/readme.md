@@ -1,6 +1,7 @@
-Floppy Bird 2D Scroller Game
+##Floppy Bird 2D Scroller Game
 
 Requirement:
+
 SOIL image loader library : `sudo apt-get install libsoil-dev`
 
 Freeglut : `sudo apt-get install freeglut3-dev`
