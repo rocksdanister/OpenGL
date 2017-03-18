@@ -1,4 +1,4 @@
-##Floppy Bird 2D Scroller Game
+Floppy Bird 2D Scroller Game
 
 Requirement:
 
