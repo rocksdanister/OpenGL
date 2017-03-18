@@ -164,7 +164,7 @@ dlist[4]=glGenLists(1);
 void update(double temp)
 {
 	syncBird+=temp;
-	if(syncBird>=150)
+	if(syncBird>=150)  // bird winganimation running at 6fps
 		{	
 			birdPhys++;
 			if(birdPhys==8)
