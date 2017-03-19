@@ -1,4 +1,4 @@
-Floppy Bird 2D Scroller Game
+Floppy Bird 2D Scroller Game  (alpha build v0.1)
 
 Requirement:
 
@@ -12,3 +12,5 @@ Controls:
 Movement: Up-Arrow Exit : Escape
 
 ![Alt text](/WorkOut/temp_files/floppy.jpg?raw=true "floppy")
+
+Note: Collision,gravity,performance needs to be reworked.
