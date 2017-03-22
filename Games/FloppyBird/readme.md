@@ -20,4 +20,4 @@ Known Issue:
 
 ![Alt text](/WorkOut/temp_files/floppy.jpg?raw=true "floppy")
 
-Note: Collision,gravity,performance needs to be reworked.
+Note: Its alpha build, go easy on me ^_^
