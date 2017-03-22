@@ -210,9 +210,9 @@ void staticBird()
 glNewList(dlist[0], GL_COMPILE);
 	glBegin(GL_QUADS);
 		glTexCoord2f(0.0, 0.0); glVertex3f(0,resY/2,0);
-		glTexCoord2f(1.0, 0.0); glVertex3f(50,resY/2,0);
-		glTexCoord2f(1.0, -1.0); glVertex3f(50,(resY/2)+50,0);                        
-		glTexCoord2f(0.0, -1.0); glVertex3f(0,(resY/2)+50,0);
+		glTexCoord2f(1.0, 0.0); glVertex3f(45,resY/2,0);
+		glTexCoord2f(1.0, -1.0); glVertex3f(45,(resY/2)+45,0);                        
+		glTexCoord2f(0.0, -1.0); glVertex3f(0,(resY/2)+45,0);
 	glEnd();
 glEndList();
 }
