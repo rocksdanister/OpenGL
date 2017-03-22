@@ -33,7 +33,7 @@ int main(int argc, char** argv)
    //..frame-update setup
    queuedMilliseconds=0;
    prev0=0;
-   fps=60;
+   fps=60.05;
    responseTime=(1/fps)*1000;
 
 //... Rendering resoultion
