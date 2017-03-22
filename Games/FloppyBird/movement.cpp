@@ -19,7 +19,7 @@ for(ii=0;ii<inputKey.size();ii++)
 				movementY+=4;
 				cnt++;
 			}	
-		if(cnt==10)
+		if(cnt==8)
 			{	
 				cnt=0;	
 				inputKey.erase(inputKey.begin()+ii);
@@ -29,7 +29,7 @@ for(ii=0;ii<inputKey.size();ii++)
 //...GRAVITY
 if(inputKey.size()==0)
 {
-v=0.5;
+v=0.65;
 movementY-= v*v/2*g;
 }
 
@@ -37,7 +37,6 @@ movementY-= v*v/2*g;
 
 void processSpecialKeys(int key, int xx, int yy)
 {
-	int speed=40;
 	switch (key) 
 	{
 		case GLUT_KEY_UP :
