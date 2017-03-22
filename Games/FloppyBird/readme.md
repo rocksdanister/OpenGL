@@ -14,8 +14,9 @@ Changelog:
 
 Known Issue:
 
-1. stuttering/frameskip issue, needs to properly implement vsync using glew
+1. stuttering/frameskip issue, needs to properly implement vsync using glew. Adjust fps and run with vlbank_mode=0 option as a temp fix.
 2. Collision detecition and gravity algorithm tweaking required
+3. Initial game rendering delay/stutter.
 
 ![Alt text](/WorkOut/temp_files/floppy.jpg?raw=true "floppy")
 
