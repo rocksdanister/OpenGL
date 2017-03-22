@@ -16,9 +16,10 @@ int objdisp;
 
 vector<bricks> obstacleBrick;
 unsigned char* image;
-static GLuint texBird[8],texBac[2],texObj[2];
-int width, height,groundX,skyX,treeX,score;
-GLuint dlist[5];
+static GLuint texBird[8],texBac[2],texObj[3];
+int width, height,score;
+float skyX,treeX,treeX2,groundX;
+GLuint dlist[6];
 int birdPhys,i,j,tmp,highscore;
 double syncBird;
 
@@ -129,13 +130,13 @@ void init()
 	SOIL_free_image_data( image );
 
 //..OBJECTS	
-	glGenTextures(2,texObj);	
+	glGenTextures(3,texObj);	
 	glBindTexture(GL_TEXTURE_2D, texObj[0]);  
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	image = SOIL_load_image( "res/objects/trees.png", &width, &height, 0, SOIL_LOAD_RGBA );
+	image = SOIL_load_image( "res/objects/trees_near.png", &width, &height, 0, SOIL_LOAD_RGBA );
 	glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image );
 	SOIL_free_image_data( image );
 
@@ -145,6 +146,15 @@ void init()
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	image = SOIL_load_image( "res/objects/brick.png", &width, &height, 0, SOIL_LOAD_RGBA );
+	glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image );
+	SOIL_free_image_data( image );
+	
+	glBindTexture(GL_TEXTURE_2D, texObj[2]);  
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); 
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	image = SOIL_load_image( "res/objects/trees_far.png", &width, &height, 0, SOIL_LOAD_RGBA );
 	glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image );
 	SOIL_free_image_data( image );
 
@@ -159,6 +169,7 @@ dlist[1]=glGenLists(1);
 dlist[2]=glGenLists(1);
 dlist[3]=glGenLists(1);
 dlist[4]=glGenLists(1);
+dlist[5]=glGenLists(1);
 }
 
 void update(double temp)
@@ -178,15 +189,19 @@ void updateSynchronised()
 {
 		groundX-=4;
 		if(groundX<-resX)
-		groundX=0;
+			groundX=0;
 
-		skyX-=1;
+		skyX-=0.75;
 		if(skyX<-resX)
-		skyX=0;
+			skyX=0;
 
 		treeX-=2;
 		if(treeX<-resX)
-		treeX=0;
+			treeX=0;
+
+		treeX2-=1.75;
+		if(treeX2<-resX)
+			treeX2=0;
 		
 }
 
@@ -238,6 +253,18 @@ glBegin(GL_QUADS);
 glEndList();
 }
 
+void staticTrees_2()
+{
+glNewList(dlist[5], GL_COMPILE);
+glBegin(GL_QUADS);
+		glTexCoord2f(0.0, 0.0); glVertex3f(0,0,0);
+		glTexCoord2f(1.0, 0.0); glVertex3f(resX*2,0,0);
+		glTexCoord2f(1.0, -1.0); glVertex3f(resX*2,resY,0);                        
+		glTexCoord2f(0.0, -1.0); glVertex3f(0,resY,0);
+	glEnd();
+glEndList();
+}
+
 void staticBrick()
 {
 //... BOTTOM BRICK	
@@ -270,6 +297,7 @@ movementY=0;
 groundX=0;
 skyX=0;
 treeX=0;
+treeX2=0;
 obstacleBrick.clear();
 score=0;
 }
@@ -281,8 +309,9 @@ void hitDetection()
 			//Closest Brick X                      Further Brick X
 		if( (resX+obstacleBrick[i].objdisp)>=0 && (resX+50+obstacleBrick[i].objdisp)<=100 )
 		{
+
 				//Bottom Brick Y original=(movementY+resY/2)				Top Brick Y	 original=(movementY+resY/2+25)				                           
-			if( (movementY+15+resY/2) >= ( (resY/2-25) +obstacleBrick[i].y) && (movementY+resY/2+30) <= ( (resY/2+25) +obstacleBrick[i].y) )
+			if( (movementY+(resY/2)+5) >= ( ((resY/2)-40)+ obstacleBrick[i].y) && (movementY+(resY/2)+45) <= ( ((resY/2)+40) +obstacleBrick[i].y) )
 			{
 				hit1++;				
 	 		}
@@ -333,6 +362,7 @@ void draw()
 		staticBird();
 		staticSky();
 		staticTrees();
+		staticTrees_2();
 		opt1=1;
 	}
 	else
@@ -360,6 +390,12 @@ void draw()
 
 	//..TREES
 	glPushMatrix();
+	glTranslatef(treeX2,0,0);
+	glBindTexture(GL_TEXTURE_2D, texObj[2]);
+	glCallList(dlist[5]);
+	glPopMatrix();
+
+	glPushMatrix();
 	glTranslatef(treeX,0,0);
 	glBindTexture(GL_TEXTURE_2D, texObj[0]);
 	glCallList(dlist[3]);
@@ -384,7 +420,7 @@ void draw()
 	for(j=0;j<obstacleBrick.size();j++)
 	{
 	obstacleBrick[j].objdisp-=4;
-	if(obstacleBrick[j].objdisp<-(resX+50))
+	if(obstacleBrick[j].objdisp<-(resX+100))
 	{
 	score++;hit1=0;hit2=0;
 	obstacleBrick.erase(obstacleBrick.begin()+j);
@@ -416,6 +452,6 @@ void draw()
 	}
 
 	hitDetection();
-
+glFinish();
 glutSwapBuffers();
 }
