@@ -1,3 +1,5 @@
+NOTE: OLD BUILD. CHECK MY OTHER REPO'S FOR LATEST STABLE BUILD OF THIS GAME.
+
 Floppy Bird 2D Scroller Game  (alpha build v0.2)
 
 Requirement:
