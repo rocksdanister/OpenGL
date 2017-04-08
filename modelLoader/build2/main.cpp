@@ -19,7 +19,7 @@ void initialSetup()
 	FILE *filename;
 	char temp[50];
 	vector<string> name;
-
+	// HIGHLY DANGEROUS, DO NOT PASS VARIABLE TO SYSTEM CALL, THIS IS JUST A QUICK FEATURE I ADDED FOR PRESENTATION
 	system("(ls | grep .obj)>filelist");
 	filename=fopen("filelist","r");
 
