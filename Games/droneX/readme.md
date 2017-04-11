@@ -1,3 +1,5 @@
+NOTE: VERY OLD CODE, CHECK MY OTHER REPO'S
+
 Work in progress project. 
 
 ![Alt text](/WorkOut/temp_files/dronx.jpg?raw=true "droneX")
