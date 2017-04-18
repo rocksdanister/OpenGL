@@ -15,14 +15,14 @@ GLfloat red[]={0.9,0.1,0,1};
 GLfloat objcolor[]={1.0f,0.0f,0.0f,1.0f}; 
 GLfloat suncolor[]={ 0.98f, 0.834f, 0.25f ,1.0f};
 GLfloat planetColor[8][3]={{0.7,0.7,0.7},
-						   {1,1,0},
-						   {0,0,0.8},
-						   {1,0,0},
-						   {0.5,0.5,0.5},
-						   {0.7,0.7,0},
-						   {0,0,1},
-						   {0,0,0.7}
-						  };
+			   {1,1,0},
+			   {0,0,0.8},
+			   {1,0,0},
+			   {0.5,0.5,0.5},
+			   {0.7,0.7,0},
+			   {0,0,1},
+			   {0,0,0.7}
+			  };
 int ii;
 GLfloat planetRadius[8]={0.2,0.3,0.35,0.25,0.78,0.69,0.65,0.6};
 GLfloat planetAngle[8];
@@ -113,14 +113,10 @@ void draw()
 GLfloat planetAdd[8]={0.24,0.62,1,1.00,1.32,1.55,1.88,2};
 void update(int value)
 {
-    //angle += 1.0f;
-    //if (angle > 360)
-      //  angle -= 360;
-
 	for(ii=0;ii<8;ii++)
-	planetAngle[ii]+=planetAdd[ii];
-    glutPostRedisplay();
-    glutTimerFunc(16.67, update, 0);
+		planetAngle[ii]+=planetAdd[ii];
+    	glutPostRedisplay();
+    	glutTimerFunc(16.67, update, 0);
 }
 
 
