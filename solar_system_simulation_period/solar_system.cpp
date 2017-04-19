@@ -121,7 +121,7 @@ Saturn: 10,755.70 days (29.5 years)
 Uranus: 30,687.15 days (84 years)
 Neptune: 60,190.03 days (164.8 years)
 
-For Earth, Divide 360/60*60, i.e 360= 1 revolution in 60no of 60frames,it gives 16.4, then divide it
+For Earth, Divide 360/60*60, i.e 360 degree= 1 revolution in 60no of 60frames,it gives 16.4, then divide it
 by the number of years for each planet, e.g Neptune =16.4/164=>0.1
 */
 
