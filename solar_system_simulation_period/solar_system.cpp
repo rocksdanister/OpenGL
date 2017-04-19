@@ -139,7 +139,8 @@ void update(int value)
 	{
 	planetAngle[ii]=0;
 	planetPeriod[ii]++;
-	system("clear");
+    //... Heavy overhead, need to print it on glut window rather than terminal.		
+    system("clear");
     cout<<"Period of Mercury : "<<planetPeriod[0]<<endl;
     cout<<"Period of Venus : "<<planetPeriod[1]<<endl;
     cout<<"Period of Earth : "<<planetPeriod[2]<<endl;
