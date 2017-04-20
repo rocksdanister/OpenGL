@@ -48,7 +48,7 @@ void init()
     glLightfv(GL_LIGHT0, GL_POSITION, light0_position);
     glLightfv(GL_LIGHT0,GL_DIFFUSE,white);
     glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT,white);
-    glMateriali(GL_FRONT, GL_SHININESS, 100);
+    //glMateriali(GL_FRONT, GL_SHININESS, 100);
     glClearColor(0,0,0,1);
 }
 double rX=0;
@@ -115,7 +115,7 @@ void draw()
 	//...RENDER
     gluLookAt(0,-16,5,0.5,0.5,-0.1,0,1,0);
     glLightfv(GL_LIGHT0, GL_POSITION, light0_position);
-    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE,white);
+    //glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE,white);
 
     for(jj=0.5,ii=0;ii<8;ii++)
     {
