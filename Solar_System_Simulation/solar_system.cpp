@@ -171,7 +171,7 @@ void update(int value)
 		}
     }
     glutPostRedisplay();
-    glutTimerFunc(33.33, update, 0);
+    glutTimerFunc(66.66, update, 0);
 }
 
 
@@ -193,7 +193,7 @@ int main(int argc, char **argv)
     glutCreateWindow("Solar System");
     init();
     glutDisplayFunc(draw);
-    glutTimerFunc(33.33, update, 0);  // 30fps
+    glutTimerFunc(66.66, update, 0);  // 15fps
     glutReshapeFunc(handleResize);
     glutKeyboardFunc(keyboard);
     glutMainLoop();
