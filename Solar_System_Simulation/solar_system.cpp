@@ -113,7 +113,7 @@ void draw()
      //...TEXT 
     drawString();
 	//...RENDER
-    gluLookAt(0,-20,5,0.5,0.5,-0.1,0,1,0);
+    gluLookAt(0,-16,5,0.5,0.5,-0.1,0,1,0);
     glLightfv(GL_LIGHT0, GL_POSITION, light0_position);
     glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE,white);
 
