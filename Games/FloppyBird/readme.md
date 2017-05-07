@@ -22,4 +22,4 @@ Known Issue:
 
 ![Alt text](/WorkOut/temp_files/floppy.jpg?raw=true "floppy")
 
-Note: Its alpha build, go easy on me ^_^
+
